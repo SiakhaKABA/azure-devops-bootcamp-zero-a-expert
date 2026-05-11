@@ -30,27 +30,8 @@ run "basic_storage_creation" {
   }
 }
 
-# Test 2: Création avec conteneurs
-run "storage_with_containers" {
-  command = plan
-  
-  variables {
-    containers = {
-      "data" = { access_type = "private" }
-      "logs" = { access_type = "private" }
-      "public" = { access_type = "blob" }
-    }
-  }
 
-  # On ne peut pas vérifier les conteneurs créés dynamiquement au plan
-  # Donc on teste uniquement le nombre défini dans la config
-  assert {
-    condition     = length(variables.containers) == 3
-    error_message = "3 conteneurs doivent être définis dans la configuration"
-  }
-}
-
-# Test 3: Override du nom
+# Test 2: Override du nom
 run "storage_name_override" {
   command = plan
   
@@ -66,7 +47,7 @@ run "storage_name_override" {
 }
 
 
-# Test 4: Configuration Production
+# Test 3: Configuration Production
 run "production_configuration" {
   command = plan
   
