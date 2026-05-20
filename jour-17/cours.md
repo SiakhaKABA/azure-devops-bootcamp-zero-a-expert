@@ -71,7 +71,7 @@ Azure Boards permet de planifier, suivre et discuter du travail.
 
 Ce sont les unités de base du suivi. Voici les types principaux, du plus large au plus détaillé :
 
-```mermaid
+```
 Epic (très grande initiative)
   └── Feature (fonctionnalité livrable)
         └── User Story (besoin utilisateur)
